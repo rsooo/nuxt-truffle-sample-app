@@ -18,16 +18,20 @@ import 'buefy/dist/buefy.css'
 Vue.use(Buefy)
 
 import Card from '~/components/Card'
-import { mapActions, mapMutations } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'Index',
-
-  components: {
-    Card
+  mounted(){
+    console.log('mounted')
+    this.getContractData()
   },
+  components: {
+    Card,
+  },
+  computed: { },
   methods: {
-    ...mapActions('contract', ['callDemoContract']),
+    ...mapActions('contract', ['callDemoContract', 'getContractData']),
   }
 }
 </script>
