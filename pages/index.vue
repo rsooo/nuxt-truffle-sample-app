@@ -1,47 +1,33 @@
 <template>
   <section class="section">
-    <div class="columns is-mobile">
+    <div class="columns">
 
-      <card
-        title="Free"
-        icon="github-circle"
-      >
-        Open source on <a href="https://github.com/buefy/buefy"> GitHub</a>
-      </card>
-
-      <card
-        title="Responsive"
-        icon="cellphone-link"
-      >
-        <b class="has-text-grey">Every</b> component is responsive
-      </card>
-
-      <card
-        title="Modern"
-        icon="alert-decagram"
-      >
-        Built with <a href="https://vuejs.org/">Vue.js</a> and <a href="http://bulma.io/">Bulma</a>
-      </card>
-
-      <card
-        title="Lightweight"
-        icon="arrange-bring-to-front"
-      >
-        No other internal dependency
-      </card>
+      <div class="column">
+        <H2> Hello Dapps!</H2>
+      </div>
 
     </div>
+    <button class="button is-primary" @click="callDemoContract">Contract 実行</button>
   </section>
 </template>
 
 <script>
+import Vue from 'vue'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+Vue.use(Buefy)
+
 import Card from '~/components/Card'
+import { mapActions, mapMutations } from 'vuex'
 
 export default {
-  name: 'HomePage',
+  name: 'Index',
 
   components: {
     Card
+  },
+  methods: {
+    ...mapActions('contract', ['callDemoContract']),
   }
 }
 </script>

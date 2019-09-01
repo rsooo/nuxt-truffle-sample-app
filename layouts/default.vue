@@ -10,12 +10,8 @@
           class="navbar-item"
           href="/"
         >
-          <img
-            src="~assets/buefy.png"
-            alt="Buefy"
-            height="28"
-          >
-        </a>
+          Nuxt-Truffle-Sample-App
+       </a>
 
         <div class="navbar-burger">
           <span />
