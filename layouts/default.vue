@@ -23,6 +23,7 @@
 
     <section class="main-content columns">
 
+      <!-- Buefy initial Tempalte: comment out
       <aside class="column is-2 section">
         <p class="menu-label is-hidden-touch">General</p>
         <ul class="menu-list">
@@ -39,6 +40,7 @@
           </li>
         </ul>
       </aside>
+      -->
 
       <div class="container column is-10">
         <nuxt />

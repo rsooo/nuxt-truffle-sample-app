@@ -1,47 +1,34 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-
 contract DemoContract {
-
-    // イベントをここで宣言するのだ
-    event NewZombie(uint zombieId, string name, uint dna);
 
     uint dnaDigits = 16;
     uint dnaModulus = 10 ** dnaDigits;
 
-    struct Zombie {
+    struct DemoData {
         string name;
-        uint dna;
+        uint id;
     }
 
-    Zombie[] public zombies;
+    DemoData[] public demodata;
 
-    mapping (uint => address) public zombieToOwner;
-    mapping (address => uint) ownerZombieCount;
-
-    function _createZombie(string memory _name, uint _dna) private {
-        // zombies.push(Zombie(_name, _dna));
-        // ここでイベントを発生させるのだ
-        uint id = zombies.push(Zombie(_name, _dna)) - 1;
-        zombieToOwner[id] = msg.sender;
-        ownerZombieCount[msg.sender]++;
-
-        // emit NewZombie(id, _name, _dna);
+    function _createDemoData(string memory _name, uint _id) private {
+        uint id = demodata.push(DemoData(_name, _id)) - 1;
     }
 
-    function _generateRandomDna(string memory _str) private view returns (uint) {
+    function _generateRandomId(string memory _str) private view returns (uint) {
         uint rand = uint(keccak256(abi.encode(_str)));
         return rand % dnaModulus;
     }
 
-    function createRandomZombie(string memory _name) public {
-        uint randDna = _generateRandomDna(_name);
-        _createZombie(_name, randDna);
+    function createRandomData(string memory _name) public {
+        uint randId = _generateRandomId(_name);
+        _createDemoData(_name, randId);
     }
 
-    function getZombies() public view returns (Zombie memory){
-        return zombies[0];
+    function getData() public view returns (DemoData[] memory){
+        return demodata;
     }
 }
 

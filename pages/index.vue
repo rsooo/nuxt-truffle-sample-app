@@ -7,7 +7,11 @@
       </div>
 
     </div>
-    <button class="button is-primary" @click="callDemoContract">Contract 実行</button>
+    <b-field label="Input for Contract">
+      <b-input v-model="text"></b-input>
+    </b-field>
+
+    <button class="button is-primary" @click="callDemoContract(text)">Execute Contract</button>
   </section>
 </template>
 
@@ -22,6 +26,9 @@ import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'Index',
+  data:  () => ({
+    text: "input"
+  }),
   mounted(){
     console.log('mounted')
     this.getContractData()
