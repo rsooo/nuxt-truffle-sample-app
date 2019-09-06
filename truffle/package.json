@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@openzeppelin/contracts": "^2.3.0",
     "openzeppelin-solidity": "^2.3.0"
   }
 }
